@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fguryel <fguryel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/03 17:35:58 by fguryel           #+#    #+#             */
-/*   Updated: 2024/10/12 21:31:27 by fguryel          ###   ########.fr       */
+/*   Created: 2024/10/12 18:40:06 by fguryel           #+#    #+#             */
+/*   Updated: 2024/10/12 18:46:33 by fguryel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s1)
+void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 {
-	int		len;
-	int		i;
-	char	*dest;
+	char	*csrc;
+	char	*cdest;
+	size_t	i;
 
-	if (s1 == NULL)
-		return (NULL);
-	len = 0;
-	while (s1[len] != '\0')
-		len++;
-	dest = (char *)malloc(sizeof(char) * (len + 1));
-	if (dest == NULL)
-		return (NULL);
+	if (src == NULL)
+		return (dst);
+	csrc = (char *)src;
+	cdest = (char *)dst;
 	i = 0;
-	while (s1[i] != '\0')
+	while (i < n)
 	{
-		dest[i] = s1[i];
+		cdest[i] = csrc[i];
 		i++;
 	}
-	dest[i] = '\0';
-	return (dest);
+	return (cdest);
 }

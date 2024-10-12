@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fguryel <fguryel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/03 17:35:58 by fguryel           #+#    #+#             */
-/*   Updated: 2024/10/12 21:31:27 by fguryel          ###   ########.fr       */
+/*   Created: 2024/10/12 21:25:13 by fguryel           #+#    #+#             */
+/*   Updated: 2024/10/12 21:27:36 by fguryel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s1)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	int		len;
-	int		i;
-	char	*dest;
+	char	*str1;
+	char	*str2;
 
-	if (s1 == NULL)
-		return (NULL);
-	len = 0;
-	while (s1[len] != '\0')
-		len++;
-	dest = (char *)malloc(sizeof(char) * (len + 1));
-	if (dest == NULL)
-		return (NULL);
-	i = 0;
-	while (s1[i] != '\0')
+	str1 = (char *)s1;
+	str2 = (char *)s2;
+	if (str1 == (char *)0 || str2 == (char *)0)
+		return (0);
+	while (n > 0)
 	{
-		dest[i] = s1[i];
-		i++;
+		if (*str1 != *str2)
+			return (*(unsigned char *)str1 - *(unsigned char *)str2);
+		if (*str1 == '\0')
+			return (0);
+		str1++;
+		str2++;
+		n--;
 	}
-	dest[i] = '\0';
-	return (dest);
+	return (0);
 }

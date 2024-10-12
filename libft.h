@@ -6,7 +6,7 @@
 /*   By: fguryel <fguryel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 18:13:11 by fguryel           #+#    #+#             */
-/*   Updated: 2024/10/11 21:17:01 by fguryel          ###   ########.fr       */
+/*   Updated: 2024/10/12 21:33:03 by fguryel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,12 @@ char	*ft_strdup(const char *s1);
 char	*ft_strjoin(char const *s1, char const *s2);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
-char	*strchr(const char *s, int c);
+char	*ft_strchr(const char *s, int c);
+void	ft_bzero(void *s, size_t n);
+char	*ft_strrchr(const char *s, int c);
+void	*ft_memset(void *b, int c, size_t len);
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
+int		ft_memcmp(const void *s1, const void *s2, size_t n);
+void	*ft_memmove(void *dst, const void *src, size_t len);
+
 #endif

@@ -1,37 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fguryel <fguryel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/03 17:35:58 by fguryel           #+#    #+#             */
-/*   Updated: 2024/10/12 21:31:27 by fguryel          ###   ########.fr       */
+/*   Created: 2024/10/12 18:52:57 by fguryel           #+#    #+#             */
+/*   Updated: 2024/10/12 19:00:13 by fguryel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s1)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int		len;
-	int		i;
-	char	*dest;
+	char	*str;
+	char	*val;
+	size_t	i;
 
-	if (s1 == NULL)
+	str = (char *)s;
+	val = 0;
+	if (str == NULL)
 		return (NULL);
-	len = 0;
-	while (s1[len] != '\0')
-		len++;
-	dest = (char *)malloc(sizeof(char) * (len + 1));
-	if (dest == NULL)
-		return (NULL);
+	if (c > 255)
+		return ((char *)s);
 	i = 0;
-	while (s1[i] != '\0')
+	while (i < n)
 	{
-		dest[i] = s1[i];
+		if (*str == c)
+		{
+			val = (char *)str;
+			break ;
+		}
+		str++;
 		i++;
 	}
-	dest[i] = '\0';
-	return (dest);
+	return (val);
 }
