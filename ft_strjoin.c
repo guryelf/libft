@@ -3,44 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fguryel <fguryel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: a90530 <a90530@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 19:22:42 by fguryel           #+#    #+#             */
-/*   Updated: 2024/10/11 19:41:32 by fguryel          ###   ########.fr       */
+/*   Updated: 2024/10/14 17:10:09 by a90530           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*handle_null_strings(char const *s1, char const *s2)
+static char	*handle_null_strings(char const *s1, char const *s2)
 {
-	if (s1 == NULL && s2 == NULL)
-	{
-		return (NULL);
-	}
 	if (s1 == NULL)
-	{
-		return ((char *)s2);
-	}
+		return (ft_strdup(s2));
 	if (s2 == NULL)
-	{
-		return ((char *)s1);
-	}
+		return (ft_strdup(s1));
 	return (NULL);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char *ft_strjoin(char const *s1, char const *s2)
 {
-	char	*s;
-	int		j;
-	int		c;
-	char	*result;
-	int		size;
+	char *s;
+	int j;
+	int c;
+	char *result;
+	int size;
 
 	result = handle_null_strings(s1, s2);
 	if (result != NULL)
 		return (result);
-	size = sizeof(s1) + sizeof(s2);
+	if (s1 == NULL && s2 == NULL)
+		return (NULL);
+	size = sizeof(s1) + sizeof(s2) + 1;
 	s = malloc(size);
 	if (s == NULL)
 		return (NULL);

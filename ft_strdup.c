@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fguryel <fguryel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: a90530 <a90530@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 17:35:58 by fguryel           #+#    #+#             */
-/*   Updated: 2024/10/12 21:31:27 by fguryel          ###   ########.fr       */
+/*   Updated: 2024/10/14 03:32:28 by a90530           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strdup(const char *s1)
 	int		i;
 	char	*dest;
 
-	if (s1 == NULL)
+	if (!s1)
 		return (NULL);
 	len = 0;
 	while (s1[len] != '\0')

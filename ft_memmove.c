@@ -43,6 +43,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 
 	csrc = (char *)src;
 	cdest = (char *)dst;
+	if ((cdest == NULL || csrc == NULL) && len > 0)
+		return NULL;
 	if (cdest < csrc)
 		ft_strcpy(1, cdest, csrc, len);
 	else

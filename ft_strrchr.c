@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fguryel <fguryel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: a90530 <a90530@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 17:50:13 by fguryel           #+#    #+#             */
-/*   Updated: 2024/10/12 17:53:32 by fguryel          ###   ########.fr       */
+/*   Updated: 2024/10/16 01:18:57 by a90530           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_strrchr(const char *s, int c)
 {
 	char	*val;
 
-	val = 0;
+	val = NULL;
 	if (s == NULL)
 		return (NULL);
 	if (c > 255)
