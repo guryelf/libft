@@ -1,41 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fguryel <fguryel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/20 22:10:43 by fguryel           #+#    #+#             */
-/*   Updated: 2024/10/18 21:06:38 by fguryel          ###   ########.fr       */
+/*   Created: 2024/10/18 18:03:09 by fguryel           #+#    #+#             */
+/*   Updated: 2024/10/18 18:21:05 by fguryel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	size_t	i;
-	size_t	j;
+	t_list	*new_lst;
 
-	i = 0;
-	if (haystack == NULL)
+	if (!lst)
 		return (NULL);
-	else if (needle == NULL)
-		return ((char *)(haystack));
-	else if (needle == NULL && haystack == NULL)
+	new_lst = malloc(sizeof(t_list) * ft_lstsize(lst));
+	if (!new_lst)
 		return (NULL);
-	while (i < len)
+	while (lst)
 	{
-		j = 0;
-		while (haystack[i + j] == needle[j])
-		{
-			if (needle[j + 1] == '\0')
-				return ((char *)(haystack + i));
-			if (haystack[i + j] == '\0')
-				break ;
-			j++;
-		}
-		i++;
+		if (lst->content)
+			new_lst->content = f(lst->content);
+		else
+			del(lst->content);
+		new_lst->next = lst->next;
+		lst = lst->next;
 	}
-	return (NULL);
+	return (new_lst);
 }

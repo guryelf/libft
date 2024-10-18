@@ -6,13 +6,14 @@
 /*   By: fguryel <fguryel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 21:29:42 by fguryel           #+#    #+#             */
-/*   Updated: 2024/10/12 22:18:33 by fguryel          ###   ########.fr       */
+/*   Updated: 2024/10/18 19:36:26 by fguryel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	ft_strcpy(int reverse, char *dest, char *src, size_t len)
+static void	ft_strcpy(int reverse, unsigned char *dest, unsigned char *src,
+		size_t len)
 {
 	size_t	i;
 
@@ -38,13 +39,13 @@ static void	ft_strcpy(int reverse, char *dest, char *src, size_t len)
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char	*csrc;
-	char	*cdest;
+	unsigned char	*csrc;
+	unsigned char	*cdest;
 
-	csrc = (char *)src;
-	cdest = (char *)dst;
-	if ((cdest == NULL || csrc == NULL) && len > 0)
-		return NULL;
+	if (dst == NULL && src == NULL && len > 0)
+		return (NULL);
+	csrc = (unsigned char *)src;
+	cdest = (unsigned char *)dst;
 	if (cdest < csrc)
 		ft_strcpy(1, cdest, csrc, len);
 	else

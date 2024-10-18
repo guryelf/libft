@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: a90530 <a90530@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fguryel <fguryel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 19:22:42 by fguryel           #+#    #+#             */
-/*   Updated: 2024/10/14 17:10:09 by a90530           ###   ########.fr       */
+/*   Updated: 2024/10/17 17:03:19 by fguryel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ static char	*handle_null_strings(char const *s1, char const *s2)
 	return (NULL);
 }
 
-char *ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char *s;
-	int j;
-	int c;
-	char *result;
-	int size;
+	char	*s;
+	int		j;
+	int		c;
+	char	*result;
+	int		size;
 
 	result = handle_null_strings(s1, s2);
 	if (result != NULL)

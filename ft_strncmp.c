@@ -6,7 +6,7 @@
 /*   By: fguryel <fguryel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 21:40:08 by fguryel           #+#    #+#             */
-/*   Updated: 2024/10/11 18:31:54 by fguryel          ###   ########.fr       */
+/*   Updated: 2024/10/18 19:46:22 by fguryel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	if (s1 == (char *)0 || s2 == (char *)0)
-		return (0);
 	while (n > 0)
 	{
 		if (*s1 != *s2)
