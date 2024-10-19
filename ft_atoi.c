@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fguryel <fguryel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: a90530 <a90530@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 21:07:54 by fguryel           #+#    #+#             */
-/*   Updated: 2024/10/11 18:32:53 by fguryel          ###   ########.fr       */
+/*   Updated: 2024/10/19 22:11:41 by a90530           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
 	int	value;
 	int	sign;

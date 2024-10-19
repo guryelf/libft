@@ -3,26 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fguryel <fguryel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: a90530 <a90530@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 16:58:37 by fguryel           #+#    #+#             */
-/*   Updated: 2024/10/17 16:58:50 by fguryel          ###   ########.fr       */
+/*   Updated: 2024/10/19 22:09:10 by a90530           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static unsigned int	ft_intlen(int n)
+static unsigned int ft_intlen(int n)
 {
-	int	i;
+    unsigned int i;
+    unsigned int num;
 
-	i = 0;
-	while (n > 9)
-	{
-		n = n / 10;
-		i++;
-	}
-	return (i + 1);
+    i = 0;
+    if (n == 0)
+        return (1);
+    if (n == -2147483648)
+        return (11);
+    if (n < 0)
+    {
+        i++;
+        n *= -1;
+    }
+    num = n;
+    while (num > 0)
+    {
+        num = num / 10;
+        i++;
+    }
+    return (i);
 }
 
 static unsigned int	ft_putnbr(int n, char *new_str, unsigned int i)
@@ -53,10 +64,16 @@ char	*ft_itoa(int n)
 	unsigned int	i;
 
 	len = ft_intlen(n);
-	new_str = malloc(sizeof(char) * len + 1);
+	new_str = malloc(sizeof(char) * (len + 1));
 	if (!new_str)
 		return (NULL);
 	i = 0;
+	if (n == 0)
+    {
+        new_str[0] = '0';
+        new_str[1] = '\0';
+        return (new_str);
+    }
 	i = ft_putnbr(n, new_str, i);
 	new_str[i] = '\0';
 	return (new_str);

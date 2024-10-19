@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fguryel <fguryel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: a90530 <a90530@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/12 21:29:42 by fguryel           #+#    #+#             */
-/*   Updated: 2024/10/18 19:36:26 by fguryel          ###   ########.fr       */
+/*   Updated: 2024/10/19 17:34:23 by a90530           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	ft_strcpy(int reverse, unsigned char *dest, unsigned char *src,
-		size_t len)
+static void ft_strcpy(int reverse, unsigned char *dest, unsigned char *src,
+					  size_t len)
 {
-	size_t	i;
+	size_t i;
 
 	if (reverse == 0)
 	{
@@ -37,18 +37,18 @@ static void	ft_strcpy(int reverse, unsigned char *dest, unsigned char *src,
 	}
 }
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void *ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned char	*csrc;
-	unsigned char	*cdest;
-
-	if (dst == NULL && src == NULL && len > 0)
+	unsigned char	*source;
+	unsigned char	*destination;
+	
+	if (dst == NULL && src == NULL)
 		return (NULL);
-	csrc = (unsigned char *)src;
-	cdest = (unsigned char *)dst;
-	if (cdest < csrc)
-		ft_strcpy(1, cdest, csrc, len);
+	source = (unsigned char *)src;
+	destination = (unsigned char *)dst;
+	if (dst < src)
+		ft_strcpy(1, destination, source, len);
 	else
-		ft_strcpy(0, cdest, csrc, len);
-	return (cdest);
+		ft_strcpy(0, destination, source, len);
+	return (dst);
 }
